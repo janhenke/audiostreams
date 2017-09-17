@@ -1,0 +1,4 @@
+
+add_library(audiostreams_server temp.cpp)
+
+target_link_libraries(audiostreams_server audiostreams)
