@@ -28,23 +28,15 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL Clang)
 	endif ()
 endif ()
 
-option(BUILD_CLIENT_LIBRARY "Build the client library." ON)
-option(BUILD_SERVER_LIBRARY "Build the server library." ON)
-option(BUILD_TESTS "Build the tests." ON)
-option(BUILD_EXAMPLES "Build the examples." ON)
-
 option(BUILD_SHARED_LIBS "Build shared librarys." ON)
 option(USE_NETWORK_STACK "Enable the library's internal network code, adds dependency on Boost ASIO." ON)
 
 ## if either the client or server library is build, we also build the internal common library
-if(${BUILD_CLIENT_LIBRARY} OR ${BUILD_SERVER_LIBRARY})
+if (${BUILD_CLIENT_LIBRARY} OR ${BUILD_SERVER_LIBRARY})
 	set(BUILD_COMMON_LIBRARY TRUE)
-else()
+else ()
 	set(BUILD_COMMON_LIBRARY FALSE)
-endif()
-
-# configure config.h from build system properties
-configure_file(config.h.cmake config.h)
+endif ()
 
 # find project dependencies and configure them
 find_package(Doxygen)
@@ -55,25 +47,15 @@ include(GenerateExportHeader)
 find_package(Threads REQUIRED)
 list(APPEND PROJECT_LIBRARY_DEPENDECIES Threads::Threads)
 
-if(${BUILD_COMMON_LIBRARY})
-	add_subdirectory(common)
-	include_directories(common)
-	include_directories(${PROJECT_BUILD_DIR}/common)
-endif()
+add_subdirectory(common)
+include_directories(common)
+include_directories(${PROJECT_BUILD_DIR}/common)
 
-if(${BUILD_CLIENT_LIBRARY})
-	add_subdirectory(client)
-endif()
+add_subdirectory(client)
 
-if(${BUILD_SERVER_LIBRARY})
-	add_subdirectory(server)
-endif()
+add_subdirectory(server)
 
-if(${BUILD_TESTS})
-	add_subdirectory(test)
-endif()
+add_subdirectory(test EXCLUDE_FROM_ALL)
 
-if(${BUILD_EXAMPLES})
-	add_subdirectory(examples)
-endif()
+add_subdirectory(examples EXCLUDE_FROM_ALL)
 
