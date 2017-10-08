@@ -1,7 +1,7 @@
 #include "version.hpp"
 
-const std::string & audiostreams::getVersion() {
-	return AUDIOSTREAMS_VERSION;
+const std::string audiostreams::getVersion() {
+	return std::string(AUDIOSTREAMS_VERSION);
 }
 
 uint8_t audiostreams::getMajorVersion() {
