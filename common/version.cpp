@@ -1,17 +1,17 @@
 #include "version.hpp"
 
-const char *audiostreams::getVersion() {
-	return PROJECT_VERSION;
+const std::string & audiostreams::getVersion() {
+	return AUDIOSTREAMS_VERSION;
 }
 
 uint8_t audiostreams::getMajorVersion() {
-	return PROJECT_VERSION_MAJOR;
+	return static_cast<uint8_t>(AUDIOSTREAMS_MAJOR_VERSION);
 }
 
 uint8_t audiostreams::getMinorVersion() {
-	return PROJECT_VERSION_MINOR;
+	return static_cast<uint8_t>(AUDIOSTREAMS_MINOR_VERSION);
 }
 
-uint8_t audiostreams::getPatchVersion() {
-	return PROJECT_VERSION_PATCH;
+uint16_t audiostreams::getPatchVersion() {
+	return static_cast<uint16_t>(AUDIOSTREAMS_PATCH_VERSION);
 }

@@ -8,6 +8,6 @@ list(APPEND COMMON_SOURCE_FILES ${CMAKE_CURRENT_BINARY_DIR}/config.hpp)
 list(APPEND COMMON_SOURCE_FILES ${CMAKE_CURRENT_BINARY_DIR}/audiostreams_export.h)
 list(APPEND COMMON_SOURCE_FILES version.cpp version.hpp)
 
-add_library(audiostreams STATIC ${COMMON_SOURCE_FILES})
+add_library(audiostreams_common STATIC ${COMMON_SOURCE_FILES})
 
-GENERATE_EXPORT_HEADER(audiostreams BASE_NAME AUDIOSTREAMS)
+GENERATE_EXPORT_HEADER(audiostreams_common BASE_NAME AUDIOSTREAMS)

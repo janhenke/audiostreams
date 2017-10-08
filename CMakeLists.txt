@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 3.7)
 
 project(audiostreams VERSION 0.0.1 LANGUAGES C CXX)
 
-# compile for C++17 without extensions
+# compile for C++17 without compiler extensions
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_EXTENSIONS OFF)
-# compile for C11 without extensions
+# compile for C11 without compiler extensions
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_EXTENSIONS OFF)
 
