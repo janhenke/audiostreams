@@ -14,14 +14,14 @@ namespace audiostreams {
 	AUDIOSTREAMS_EXPORT const std::string getVersion();
 
 	/// \brief Return the major version of this library at compile time.
-	/// \return An unsigned 8 bit integer representing this libraries major version number.
+	/// \return An unsigned 8 bit integer representing this library's major version number.
 	AUDIOSTREAMS_EXPORT uint8_t getMajorVersion();
 
 	/// \brief Return the minor version of this library at compile time.
-	/// \return An unsigned 8 bit integer representing this libraries major version number.
+	/// \return An unsigned 8 bit integer representing this library's major version number.
 	AUDIOSTREAMS_EXPORT uint8_t getMinorVersion();
 
 	/// \brief Return the patch version of this library at compile time.
-	/// \return An unsigned 8 bit integer representing this libraries major version number.
+	/// \return An unsigned 8 bit integer representing this library's major version number.
 	AUDIOSTREAMS_EXPORT uint16_t getPatchVersion();
 }

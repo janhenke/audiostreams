@@ -4,6 +4,7 @@ project(audiostreams VERSION 0.0.1 LANGUAGES C CXX)
 
 # compile for C++17 without compiler extensions
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
 # compile for C11 without compiler extensions
 set(CMAKE_C_STANDARD 11)
@@ -32,20 +33,10 @@ option(BUILD_SHARED_LIBS "Build shared librarys." ON)
 option(USE_NETWORK_STACK "Enable the library's internal network code, adds dependency on Boost ASIO." ON)
 
 ## if either the client or server library is build, we also build the internal common library
-if (${BUILD_CLIENT_LIBRARY} OR ${BUILD_SERVER_LIBRARY})
-	set(BUILD_COMMON_LIBRARY TRUE)
-else ()
-	set(BUILD_COMMON_LIBRARY FALSE)
-endif ()
+set(BUILD_COMMON_LIBRARY (${BUILD_CLIENT_LIBRARY} OR ${BUILD_SERVER_LIBRARY}))
 
 # find project dependencies and configure them
 find_package(Doxygen)
-
-include(GenerateExportHeader)
-
-## Threading
-find_package(Threads REQUIRED)
-list(APPEND PROJECT_LIBRARY_DEPENDECIES Threads::Threads)
 
 add_subdirectory(common)
 include_directories(common)

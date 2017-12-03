@@ -1,0 +1,7 @@
+syntax = "proto2";
+
+package audiostreams.proto;
+
+message ping {
+    required uint32 sequence = 1;
+}
