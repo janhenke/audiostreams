@@ -10,7 +10,11 @@ configure_file(config.hpp.cmake config.hpp)
 
 PROTOBUF_GENERATE_CPP(PROTO_SOURCE_FILES PROTO_HEADER_FILES audiostreams.proto)
 include_directories(PROTOBUF_INCLUDE_DIRS)
-add_library(audiostreams_proto STATIC ${PROTO_SOURCE_FILES} ${PROTO_HEADER_FILES})
+
+add_library(audiostreams_proto ${PROTO_SOURCE_FILES} ${PROTO_HEADER_FILES})
+set_target_properties(audiostreams_proto PROPERTIES
+                      VERSION ${AUDIOSTREAMS_PROTO_VERSION}
+                      SOVERSION ${AUDIOSTREAMS_PROTO_SOVERSION})
 target_link_libraries(audiostreams_proto ${PROJECT_LINK_LIBRARIES} ${PROTOBUF_LIBRARY})
 
 include_directories(${CMAKE_CURRENT_BINARY_DIR})

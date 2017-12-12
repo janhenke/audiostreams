@@ -10,6 +10,13 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_C_EXTENSIONS OFF)
 
+set(AUDIOSTREAMS_PROTO_VERSION 0.1)
+set(AUDIOSTREAMS_PROTO_SOVERSION 0)
+set(AUDIOSTREAMS_CLIENT_VERSION 0.1)
+set(AUDIOSTREAMS_CLIENT_SOVERSION 0)
+set(AUDIOSTREAMS_SERVER_VERSION 0.1)
+set(AUDIOSTREAMS_SERVER_SOVERSION 0)
+
 # include current source and binary directory by default
 #set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -31,9 +38,6 @@ endif ()
 
 option(BUILD_SHARED_LIBS "Build shared librarys." ON)
 option(USE_NETWORK_STACK "Enable the library's internal network code, adds dependency on Boost ASIO." ON)
-
-## if either the client or server library is build, we also build the internal common library
-set(BUILD_COMMON_LIBRARY (${BUILD_CLIENT_LIBRARY} OR ${BUILD_SERVER_LIBRARY}))
 
 # find project dependencies and configure them
 find_package(Doxygen)

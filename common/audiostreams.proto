@@ -1,7 +1,9 @@
-syntax = "proto2";
+syntax = "proto3";
 
 package audiostreams.proto;
 
-message ping {
-    required uint32 sequence = 1;
+option optimize_for = LITE_RUNTIME;
+
+message client_hello {
+    uint32 sequence = 1;
 }
