@@ -16,7 +16,8 @@ PROTOBUF_GENERATE_CPP(PROTO_SOURCE_FILES PROTO_HEADER_FILES audiostreams.proto)
 add_library(audiostreams_proto ${PROTO_SOURCE_FILES} ${PROTO_HEADER_FILES})
 set_target_properties(audiostreams_proto PROPERTIES
                       VERSION ${AUDIOSTREAMS_PROTO_VERSION}
-                      SOVERSION ${AUDIOSTREAMS_PROTO_SOVERSION})
+                      SOVERSION ${AUDIOSTREAMS_PROTO_SOVERSION}
+					  WINDOWS_EXPORT_ALL_SYMBOLS ON)
 target_link_libraries(audiostreams_proto ${PROJECT_LINK_LIBRARIES} ${PROTOBUF_LIBRARY})
 list(APPEND PROJECT_LINK_LIBRARIES audiostreams_proto)
 
