@@ -24,7 +24,7 @@ set(AUDIOSTREAMS_SERVER_SOVERSION 0)
 if (${UNIX})
 	add_compile_options(-Wall -Wextra -Werror -Wpedantic)
 elseif (${WIN32})
-	add_compile_options(/W4 /WX /EHsc)
+#	add_compile_options(/W4 /WX /EHsc)
 endif ()
 
 # project options
