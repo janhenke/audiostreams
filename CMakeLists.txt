@@ -28,20 +28,11 @@ elseif (${WIN32})
 endif ()
 
 # project options
-# Use libc++ instead of libstdc++ (Clang only)
+## Use libc++ instead of libstdc++ (Clang only)
 if (${CMAKE_CXX_COMPILER_ID} STREQUAL Clang)
 	option(USE_LIBCPP "Use libc++ as C++ standard library" OFF)
 	if (USE_LIBCPP)
 		add_compile_options(-stdlib=libc++)
-	endif ()
-endif ()
-
-# Windows specific options
-if (${WIN32})
-	option(VCPKG "Use vcpkg to search for needed libraries" ON)
-	if (${VCPKG})
-		set(VCPKG_PATH "C:\\vcpkg" CACHE PATH "Path to the vcpkg directory")
-		string(CONCAT CMAKE_TOOLCHAIN_FILE ${VCPKG_PATH} "scripts\\buildsystems\\vcpkg.cmake")
 	endif ()
 endif ()
 
