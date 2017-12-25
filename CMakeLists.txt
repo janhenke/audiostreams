@@ -17,14 +17,11 @@ set(AUDIOSTREAMS_CLIENT_SOVERSION 0)
 set(AUDIOSTREAMS_SERVER_VERSION 0.1)
 set(AUDIOSTREAMS_SERVER_SOVERSION 0)
 
-# include current source and binary directory by default
-#set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
 # enable extra warnings
 if (${UNIX})
-	add_compile_options(-Wall -Wextra -Werror -Wpedantic)
+	add_compile_options(-Wall -Wextra -Wpedantic)
 elseif (${WIN32})
-#	add_compile_options(/W4 /WX /EHsc)
+	add_compile_options(/W4 /EHsc)
 endif ()
 
 # project options
@@ -37,18 +34,8 @@ if (${CMAKE_CXX_COMPILER_ID} STREQUAL Clang)
 endif ()
 
 option(BUILD_SHARED_LIBS "Build shared librarys." ON)
-option(USE_NETWORK_STACK "Enable the library's internal network code, adds dependency on Boost ASIO." ON)
 
-# find project dependencies and configure them
-find_package(Doxygen)
-
-add_subdirectory(common)
-include_directories(common)
-include_directories(${PROJECT_BUILD_DIR}/common)
-
-add_subdirectory(client)
-
-add_subdirectory(server)
+add_subdirectory(src)
 
 add_subdirectory(test EXCLUDE_FROM_ALL)
 
