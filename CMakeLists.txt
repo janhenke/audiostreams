@@ -1,20 +1,14 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(audiostreams VERSION 0.0.1 LANGUAGES C CXX)
+project(audiostreams VERSION 0.0.1 LANGUAGES CXX)
 
 # compile for C++17 without compiler extensions
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
-# compile for C11 without compiler extensions
-set(CMAKE_C_STANDARD 11)
-set(CMAKE_C_EXTENSIONS OFF)
 
-set(AUDIOSTREAMS_PROTO_VERSION 0.1)
 set(AUDIOSTREAMS_PROTO_SOVERSION 0)
-set(AUDIOSTREAMS_CLIENT_VERSION 0.1)
 set(AUDIOSTREAMS_CLIENT_SOVERSION 0)
-set(AUDIOSTREAMS_SERVER_VERSION 0.1)
 set(AUDIOSTREAMS_SERVER_SOVERSION 0)
 
 # enable extra warnings
